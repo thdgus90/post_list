@@ -7,15 +7,22 @@ const PostEdit = (props) => {
   const params = useParams();
   const dispatch = useDispatch();
   const postList = useSelector((state) => state.posts.list);
-  const index = postList.findindex(()=>{})
-  console.log(postList);
+  const index = postList.findIndex((e) => e.id == params.id)
+  console.log(index);
+ 
+  console.log(postList)
+  console.log(params)
+  
 
-  // 주소창에서 가져오는것 usePrams / props.match.param.id 로도 가져올수있음.
-  console.log(params);
-  const [updateCategory, getCategory] = React.useState("");
-  const [updateName, getName] = React.useState("");
-  const [updateScore, getScore] = React.useState("");
-  const [updateDescription, getDescription] = React.useState("");
+
+  // // 주소창에서 가져오는것 usePrams / props.match.param.id 로도 가져올수있음.
+  // console.log(params);
+  const [category, getCategory] = React.useState("");
+  // const [updateName, getName] = React.useState("");
+  // const [updateScore, getScore] = React.useState("");
+  // const [updateDescription, getDescription] = React.useState("");
+
+
 
   // const editPostButton = () => {
 
@@ -32,12 +39,12 @@ const PostEdit = (props) => {
         <p>카테고리</p>
         <input
           type="text"
-          value={updateCategory}
+          value={category}
           onChange={(e) => {
             getCategory(e.target.value);
           }}
         />
-        <p>이름</p>
+        {/* <p>이름</p>
         <input
           type="text"
           value={updateName}
@@ -61,7 +68,7 @@ const PostEdit = (props) => {
             getDescription(e.target.value);
           }}
         />
-        {/* <button onClick={editPostButton}>추가</button> */}
+        <button onClick={editPostButton}>추가</button> */}
       </div>
     )
 }
